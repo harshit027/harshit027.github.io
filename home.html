@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: rgb(200, 200, 200);
+        }
+
+        h3 {
+            font-family: "Arial Black", Gadget, sans-serif;
+            color: black;
+        }
+
+        h2 {
+            font-family: "Arial Black", Gadget, sans-serif;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <h2 align="center">United States flu trend (2004 - 2014)</h2>
+    <h3><a href="index.html">Back</a></h3>
+</div>
+<hr />
+<div style="width: 80%; height: auto;">
+    <h3>
+    In this visualization tool we are showing flu trends for United States over a period of 11 years 2004 to 2014. We got this data
+    from Google Flu Trends dataset. The objective behind working on this tool is to analyze the pattern flu cases accross different states
+    and different seasons. This simple visualization tool is intended for the researches as well as general audience to get the insights
+    of flu trend in United States. <br />
+    We tried to implement as many dimensions of the data without showing the redundant data across views. The views are also designed to make
+    comparison simpler. The visualization works on 2 primary attributes, Year and States. User can select states from the map to populate which
+    views which requires state. The slider provides the utility to select year.
+    The views are briefly described below: <br />
+    <ul>
+        <li>Flu trends map: This view shows the map of United States. The states are assigned colors on the number of flu cases in that
+            state. The map is interactive wherein user can select/unselect the states to populate other views for comparison.
+        </li>
+        <li>
+            Flu trends aggregate:
+            This view compares the aggregate flu cases of the selected states and displays as percentages on the donut chart. The view is dynamic and controlled by the selections on the map.
+            The legends on the chart can be used to highlight the section on the mouse over event.
+        </li>
+        <li>
+            Flu trends seasons:
+            Seasons chart is a two dimensional comparison in which the number of flu cases are compared for the selected states and seasons for a particular year. The layers on the chart shows the flu cases for Winter, Spring, Summer, Fall. The chart is controlled by the events on the map and the slider. <br />
+            Cities: The bars on the view can be clicked to see the cities of that state. User can go back to the previous view by clicking on any of the bars again.
+        </li>
+        <li>
+            Flu trends: Monthly report:
+            This view shows the total number cases for all the states in United States on a monthly basis for the selected year. The view is controlled by the slider. User can view the number of cases using the tooltip.
+        </li>
+        <li>
+            Flu trends: States Flu Pattern:
+            This view shows the pattern of the flu cases for the all the years from 2004 to 2014 for the selected states. The view is controlled by the selection of states on the map. The legends on the view can be used to highlight pattern for that state.
+        </li>
+        <li>
+            Flu trends: Regional Report:
+            The regions are sets of states selected by HHS. The view shows the flu cases for the regions in the selected year. The states that belong to that region can be seen on the tooltip. This view is also controlled by the slider event.
+        </li>
+    </ul>
+    </h3>
+</div>
+<h3><u>Website Links</u></h3>
+<h3>
+<ul>
+    <li>
+        Demo video: <a href="https://www.youtube.com/watch?v=Y_8LbtQyuM8">https://www.youtube.com/watch?v=Y_8LbtQyuM8</a>
+    </li>
+    <li>
+        Process book: <a href="https://github.com/arunparm/dataviscourse15-pr-flutrends/blob/master/process_book_parmar_tiwari.pdf">https://github.com/arunparm/dataviscourse15-pr-flutrends/blob/master/process_book_parmar_tiwari.pdf </a>
+    </li>
+    <li>
+        Data: <a href="https://www.google.org/flutrends/about/data/flu/us/data.txt">https://www.google.org/flutrends/about/data/flu/us/data.txt</a>
+    </li>
+</ul>
+</h3>
+</body>
+</html>
