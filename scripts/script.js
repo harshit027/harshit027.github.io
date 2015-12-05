@@ -25,6 +25,7 @@ var selectedStatesSeasonData = [];
 var stateIdNameMap = {};
 var mapData = [];
 var cities = {};
+var codeStates = {};
 var regions = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9', 'R10'];
 var regionStates = {
     R1: "CT, ME, MA, NH, RI, VT",
@@ -48,6 +49,7 @@ function loadData() {
     d3.csv("data/us_state_codes.csv", function (d) {
         d.forEach(function (kvp) {
             stateCodes[kvp.Code] = kvp.State;
+            codeStates[kvp.State] = kvp.Code;
             cities[kvp.State] = [];
         });
     });
@@ -586,15 +588,25 @@ function getSelectedStatesSeasonData(year, states) {
     }
 
     //console.log(seasonsData);
+    //console.log(codeStates);
     for (var key in seasonsData) {
         if (key.indexOf(year) > -1) {
             var currentSet = seasonsData[key];
             for (var i = 0; i < currentSet.length; i++) {
-                if (states.indexOf(currentSet[i]['place']) > -1) {
+
+                var splitArr1 = currentSet[i]['place'].split(",");
+                var flag = false;
+                if(splitArr1.length>1){
+                    if(states.indexOf(stateCodes[splitArr1[1].trim()]) >-1)
+                    flag = true;
+                }
+                if (states.indexOf(currentSet[i]['place']) > -1 || flag)
+                {
                     var currentDate = new Date(key);
 
                     for (var k = 0; k < selectedStatesSeasonData.length; k++) {
-                        if (currentSet[i]['place'] == selectedStatesSeasonData[k]['place']) {
+
+                        if (currentSet[i]['place'] == selectedStatesSeasonData[k]['place'] || flag) {
                             if (currentDate.getMonth() >= 0 && currentDate.getMonth() <= 2) {
                                 selectedStatesSeasonData[k]['winter'] += parseInt(currentSet[i]['value']);
                             }
@@ -618,7 +630,7 @@ function getSelectedStatesSeasonData(year, states) {
 
 function updateDonutChart(states) {
     statesData = [];
-    console.log(statesFluAggregate);
+    //console.log(statesFluAggregate);
     for (var k = 0; k < states.length; k++) {
         var obj = [];
         obj[0] = states[k];
