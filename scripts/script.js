@@ -606,8 +606,13 @@ function getSelectedStatesSeasonData(year, states) {
                     var currentDate = new Date(key);
 
                     for (var k = 0; k < selectedStatesSeasonData.length; k++) {
-
-                        if (currentSet[i]['place'] == selectedStatesSeasonData[k]['place'] || flag) {
+                        var splitArr2 = currentSet[i]['place'].split(",")
+                        var flag1 = false;
+                        if(splitArr2.length>1){
+                            if(splitArr2[1].trim() == codeStates[selectedStatesSeasonData[k]['place']])
+                                flag1 = true;
+                        }
+                        if (currentSet[i]['place'] == selectedStatesSeasonData[k]['place'] || flag1) {
                             if (currentDate.getMonth() >= 0 && currentDate.getMonth() <= 2) {
                                 selectedStatesSeasonData[k]['winter'] += parseInt(currentSet[i]['value']);
                             }
