@@ -228,7 +228,7 @@ function drawMap() {
 
     colorScale = d3.scale.ordinal()
         .domain([min, max])
-        .range(["rgb(49,130,189)", "rgb(158, 202, 225)"]);
+        .range(["rgb(198, 219, 239)", "rgb(158, 202, 225)", "rgb(107, 174, 214)", "rgb(49,130,189)"]);
 
     var map = d3.select("#map");
     var states = d3.selectAll("#states");
@@ -238,10 +238,6 @@ function drawMap() {
     var path = d3.geo.path().projection(projection);
 
     map.html("");
-    console.log(mapData);
-
-    var diff = (max - min) / 4;
-    var colors = ["rgb(198, 219, 239)", "rgb(158, 202, 225)", "rgb(107, 174, 214)", "rgb(49,130,189)"];
 
     console.log(max + " " + min);
     map.append("g")
@@ -610,19 +606,18 @@ function getSelectedStatesSeasonData(year, states) {
 
                 var splitArr1 = currentSet[i]['place'].split(",");
                 var flag = false;
-                if(splitArr1.length>1){
-                    if(states.indexOf(stateCodes[splitArr1[1].trim()]) >-1)
-                    flag = true;
+                if (splitArr1.length > 1) {
+                    if (states.indexOf(stateCodes[splitArr1[1].trim()]) > -1)
+                        flag = true;
                 }
-                if (states.indexOf(currentSet[i]['place']) > -1 || flag)
-                {
+                if (states.indexOf(currentSet[i]['place']) > -1 || flag) {
                     var currentDate = new Date(key);
 
                     for (var k = 0; k < selectedStatesSeasonData.length; k++) {
                         var splitArr2 = currentSet[i]['place'].split(",")
                         var flag1 = false;
-                        if(splitArr2.length>1){
-                            if(splitArr2[1].trim() == codeStates[selectedStatesSeasonData[k]['place']])
+                        if (splitArr2.length > 1) {
+                            if (splitArr2[1].trim() == codeStates[selectedStatesSeasonData[k]['place']])
                                 flag1 = true;
                         }
                         if (currentSet[i]['place'] == selectedStatesSeasonData[k]['place'] || flag1) {
