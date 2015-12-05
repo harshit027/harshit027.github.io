@@ -226,6 +226,12 @@ function drawMap() {
         }
     });
 
+    var legend = d3.select("#legend");
+    var lblMinValue = legend.select("#minValue");
+    lblMinValue.text(min.toString());
+    var lblMaxValue = legend.select("#maxValue");
+    lblMaxValue.text(max.toString());
+
     colorScale = d3.scale.ordinal()
         .domain([min, max])
         .range(["rgb(198, 219, 239)", "rgb(158, 202, 225)", "rgb(107, 174, 214)", "rgb(49,130,189)"]);
@@ -234,7 +240,7 @@ function drawMap() {
     var states = d3.selectAll("#states");
     var projection = d3.geo.albersUsa()
         .scale(800)
-        .translate([300, 200]);
+        .translate([300, 180]);
     var path = d3.geo.path().projection(projection);
 
     map.html("");
