@@ -280,7 +280,8 @@ function drawMap() {
                         var currentSet = [];
                         for (var j = 0; j < mapData.length; j++) {
                             if (mapData[j]['StateName'] == selectedStates[i]) {
-                                console.log(mapData[j]['Value']);
+
+                                //console.log(mapData[j]['Value']);
 
                                 currentSet.push(mapData[j]['StateName']);
                                 for (var key in mapData[j]['Value']) {
@@ -310,7 +311,7 @@ function drawMap() {
                     var currentSet = [];
                     for (var j = 0; j < mapData.length; j++) {
                         if (mapData[j]['StateName'] == selectedStates[i]) {
-                            console.log(mapData[j]['Value']);
+                            //console.log(mapData[j]['Value']);
                             currentSet.push(mapData[j]['StateName']);
                             for (var key in mapData[j]['Value']) {
                                 currentSet.push(mapData[j]['Value'][key])
